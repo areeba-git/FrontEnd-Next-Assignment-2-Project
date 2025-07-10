@@ -419,5 +419,6 @@ This project is provided free for animal shelters and rescue organizations.
 - Inspired by the mission to connect every pet with a loving family
 
 ---
+## Need help contact me: sunrise300@gmail.com
 
 **Remember: This platform exists to help animals find homes. Please use it responsibly and keep it free for those who need it most - the shelters and the pets they care for.** 🐾❤️
