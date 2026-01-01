@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Adoption Process | PetAdopt - Your Guide to Pet Adoption',
+  title: 'Adoption Process | Pupps - Your Guide to Pet Adoption',
   description: 'Learn about our comprehensive pet adoption process. From application to bringing your new furry friend home, we guide you every step of the way.',
   keywords: 'pet adoption process, adopt a pet, pet adoption steps, dog adoption, cat adoption, pet rescue',
 };

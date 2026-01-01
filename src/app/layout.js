@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "PetAdopt - Find Your Perfect Pet Companion",
+  title: "Pupps - Find Your Perfect Pet Companion",
   description: "Connect with loving pets in need of homes. Browse adoptable dogs, cats, and other animals from local shelters and rescue organizations.",
   keywords: "pet adoption, dogs, cats, animal rescue, shelter pets, adopt a pet",
   icons: {

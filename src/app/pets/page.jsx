@@ -4,13 +4,62 @@ import { useState, useMemo } from 'react';
 import PetCard from '../../components/PetCard';
 import FilterPanel from '../../components/FilterPanel';
 import SearchBar from '../../components/SearchBar';
+import PetAgeCalculator from '@/components/PetAgeCalculator';
+import PetWeightBMIChecker from '@/components/PetWeightBMIChecker';
+import PetCareGuides from '@/components/PetCareGuides'; 
+import PetFoodRecipeGenerator from '@/components/PetFoodRecipeGenerator';
+import PrintableCharts
+ from '@/components/PrintableCharts';
+import PetBreedIdentifier from '@/components/PetBreedIdentifier';
+import PetNameGenerator from '@/components/PetNameGenerator';
 import { pets } from '../../data/pets';
+
+const ToolsSection = ({ tools, activeTool, onToolSelect }) => {
+  return (
+    <div className="bg-white rounded-xl shadow-md p-6 mb-8">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Pet Care Tools</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+        {tools.map((tool) => (
+          <button
+            key={tool.id}
+            onClick={() => onToolSelect(tool.id)}
+            className={`flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-200 ${
+              activeTool === tool.id
+                ? 'bg-blue-50 border-2 border-blue-500 shadow-sm'
+                : 'bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+            }`}
+            aria-label={`Open ${tool.name} tool`}
+            aria-pressed={activeTool === tool.id}
+          >
+            <div className={`text-2xl mb-2 ${activeTool === tool.id ? 'text-blue-600' : 'text-gray-600'}`}>
+              {tool.icon}
+            </div>
+            <span className={`text-sm font-medium text-center ${activeTool === tool.id ? 'text-blue-700' : 'text-gray-700'}`}>
+              {tool.name}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const PetsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({});
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-  const [sortBy, setSortBy] = useState('name'); // 'name', 'age', 'species'
+  const [viewMode, setViewMode] = useState('grid');
+  const [sortBy, setSortBy] = useState('name');
+  const [activeTool, setActiveTool] = useState(null);
+
+  const tools = [
+    { id: 'age-calculator', name: 'Age Calculator', icon: '📅' },
+    { id: 'weight-checker', name: 'Weight/BMI Checker', icon: '⚖️' },
+    { id: 'care-guides', name: 'Care Guides', icon: '📘' },
+    { id: 'recipe-generator', name: 'Recipe Generator', icon: '🍲' },
+    { id: 'printable-charts', name: 'Printable Charts', icon: '📊' },
+    { id: 'breed-identifier', name: 'Breed Identifier', icon: '🐶' },
+    { id: 'name-generator', name: 'Name Generator', icon: '✨' },
+  ];
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -30,7 +79,6 @@ const PetsPage = () => {
 
   const filteredAndSortedPets = useMemo(() => {
     let filtered = pets.filter(pet => {
-      // Search filter
       if (searchTerm) {
         const searchLower = searchTerm.toLowerCase();
         const matchesSearch = 
@@ -42,17 +90,14 @@ const PetsPage = () => {
         if (!matchesSearch) return false;
       }
 
-      // Species filter
       if (filters.species && pet.species !== filters.species) {
         return false;
       }
 
-      // Breed filter
       if (filters.breed && pet.breed !== filters.breed) {
         return false;
       }
 
-      // Age range filter
       if (filters.ageRange) {
         const [min, max] = filters.ageRange.split('-').map(n => n === '+' ? Infinity : parseInt(n));
         if (max === undefined) {
@@ -62,12 +107,10 @@ const PetsPage = () => {
         }
       }
 
-      // Gender filter
       if (filters.gender && pet.gender !== filters.gender) {
         return false;
       }
 
-      // Location filter
       if (filters.location) {
         const locationLower = filters.location.toLowerCase();
         if (!pet.location.toLowerCase().includes(locationLower)) {
@@ -75,12 +118,10 @@ const PetsPage = () => {
         }
       }
 
-      // Shelter filter
       if (filters.shelter && pet.shelter !== filters.shelter) {
         return false;
       }
 
-      // Tags filter
       if (filters.tags && filters.tags.length > 0) {
         const hasAllTags = filters.tags.every(tag => 
           pet.tags.some(petTag => petTag.toLowerCase().includes(tag.toLowerCase()))
@@ -91,7 +132,6 @@ const PetsPage = () => {
       return true;
     });
 
-    // Sort pets
     filtered.sort((a, b) => {
       switch (sortBy) {
         case 'name':
@@ -108,6 +148,27 @@ const PetsPage = () => {
     return filtered;
   }, [pets, searchTerm, filters, sortBy]);
 
+  const renderActiveTool = () => {
+    switch (activeTool) {
+      case 'age-calculator':
+        return <PetAgeCalculator />;
+      case 'weight-checker':
+        return <PetWeightBMIChecker />;
+      case 'care-guides':
+        return <PetCareGuides />;
+      case 'recipe-generator':
+        return <PetFoodRecipeGenerator />;
+      case 'printable-charts':
+        return <PrintableCharts />;
+      case 'breed-identifier':
+        return <PetBreedIdentifier />;
+      case 'name-generator':
+        return <PetNameGenerator />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -119,130 +180,47 @@ const PetsPage = () => {
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-            Find Your Perfect Pet
+          Our Pet Care Services
           </h1>
           <p className="text-xl text-blue-100 mb-6">
-            Browse through our collection of loving pets waiting for their forever homes
+           Discover amazing tools to keep your furry friends happy and healthy!🐾
+
+
           </p>
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Tools Section */}
+        <ToolsSection 
+          tools={tools} 
+          activeTool={activeTool} 
+          onToolSelect={setActiveTool} 
+        />
+
+        {/* Active Tool Display */}
+        {activeTool && (
+          <div className="mb-8 bg-white rounded-xl shadow-lg p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-gray-900">
+                {tools.find(t => t.id === activeTool)?.name}
+              </h3>
+              <button
+                onClick={() => setActiveTool(null)}
+                className="text-gray-500 hover:text-gray-700"
+                aria-label="Close tool"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            {renderActiveTool()}
+          </div>
+        )}
+
         {/* Header */}
-        <div className="mb-8">
-          
-          {/* Search Bar */}
-          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-            <SearchBar onSearch={handleSearch} />
-            
-            <div className="flex items-center gap-4 text-black">
-              {/* Sort Dropdown */}
-              <div className="flex items-center gap-2">
-                <label htmlFor="sort" className="text-sm font-medium text-gray-700">
-                  Sort by:
-                </label>
-                <select
-                  id="sort"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  aria-label="Sort pets by"
-                >
-                  <option value="name">Name</option>
-                  <option value="age">Age</option>
-                  <option value="species">Species</option>
-                </select>
-              </div>
-
-              {/* View Mode Toggle */}
-              <div className="flex items-center border border-gray-300 rounded-md">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`p-2 ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
-                  aria-label="Grid view"
-                  aria-pressed={viewMode === 'grid'}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                  </svg>
-                </button>
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`p-2 ${viewMode === 'list' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
-                  aria-label="List view"
-                  aria-pressed={viewMode === 'list'}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Filters Sidebar */}
-          <div className="lg:w-80 flex-shrink-0">
-            <FilterPanel
-              filters={filters}
-              onFilterChange={handleFilterChange}
-              onClearFilters={handleClearFilters}
-            />
-          </div>
-
-          {/* Main Content */}
-          <div className="flex-1">
-            {/* Results Header */}
-            <div className="flex items-center justify-between mb-6">
-              <p className="text-gray-600">
-                {filteredAndSortedPets.length} pet{filteredAndSortedPets.length !== 1 ? 's' : ''} found
-              </p>
-              
-              {(searchTerm || Object.keys(filters).length > 0) && (
-                <button
-                  onClick={handleClearFilters}
-                  className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors"
-                  aria-label="Clear all filters and search"
-                >
-                  Clear all filters
-                </button>
-              )}
-            </div>
-
-            {/* Pet Grid/List */}
-            {filteredAndSortedPets.length > 0 ? (
-              <div className={
-                viewMode === 'grid' 
-                  ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'
-                  : 'space-y-6'
-              }>
-                {filteredAndSortedPets.map(pet => (
-                  <PetCard key={pet.id} pet={pet} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                  <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No pets found</h3>
-                <p className="text-gray-600 mb-4">
-                  Try adjusting your search criteria or filters to find more pets.
-                </p>
-                <button
-                  onClick={handleClearFilters}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                  aria-label="Clear filters to see all pets"
-                >
-                  Clear Filters
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+       
       </div>
     </div>
   );

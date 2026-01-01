@@ -15,7 +15,7 @@ const TermsOfService = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-700 mb-4">
-                By accessing and using PetAdopt ("we," "our," or "us"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                By accessing and using Pupps ("we," "our," or "us"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
               </p>
               <p className="text-gray-700">
                 These Terms of Service govern your use of our website and services related to pet adoption facilitation. By using our platform, you acknowledge that you have read, understood, and agree to be bound by these terms.
@@ -25,7 +25,7 @@ const TermsOfService = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">2. Description of Service</h2>
               <p className="text-gray-700 mb-4">
-                PetAdopt is an online platform that connects potential pet adopters with animal shelters, rescue organizations, and pet owners looking to rehome their pets. Our services include:
+                Pupps is an online platform that connects potential pet adopters with animal shelters, rescue organizations, and pet owners looking to rehome their pets. Our services include:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Pet listing and search functionality</li>
@@ -38,7 +38,7 @@ const TermsOfService = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">3. User Responsibilities</h2>
               <p className="text-gray-700 mb-4">
-                As a user of PetAdopt, you agree to:
+                As a user of Pupps, you agree to:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Provide accurate and truthful information about yourself and any pets</li>
@@ -78,7 +78,7 @@ const TermsOfService = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">5. Prohibited Uses</h2>
               <p className="text-gray-700 mb-4">
-                You may not use PetAdopt for any of the following purposes:
+                You may not use Pupps for any of the following purposes:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Commercial breeding or puppy mill operations</li>
@@ -95,10 +95,10 @@ const TermsOfService = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">6. Content and Intellectual Property</h2>
               <p className="text-gray-700 mb-4">
-                <strong>User Content:</strong> You retain ownership of content you post on PetAdopt, but you grant us a license to use, display, and distribute this content on our platform.
+                <strong>User Content:</strong> You retain ownership of content you post on Pupps, but you grant us a license to use, display, and distribute this content on our platform.
               </p>
               <p className="text-gray-700 mb-4">
-                <strong>Platform Content:</strong> All content on PetAdopt, including text, graphics, logos, and software, is owned by us or our licensors and is protected by copyright and other intellectual property laws.
+                <strong>Platform Content:</strong> All content on Pupps, including text, graphics, logos, and software, is owned by us or our licensors and is protected by copyright and other intellectual property laws.
               </p>
               <p className="text-gray-700">
                 You may not reproduce, distribute, or create derivative works from our content without explicit permission.
@@ -141,7 +141,7 @@ const TermsOfService = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">10. Governing Law</h2>
               <p className="text-gray-700">
-                These Terms of Service are governed by and construed in accordance with the laws of the jurisdiction in which PetAdopt operates, without regard to conflict of law principles.
+                These Terms of Service are governed by and construed in accordance with the laws of the jurisdiction in which Pupps operates, without regard to conflict of law principles.
               </p>
             </section>
 
@@ -158,7 +158,7 @@ const TermsOfService = () => {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg">
-                <p className="text-gray-700"><strong>Email:</strong> legal@petadopt.com</p>
+                <p className="text-gray-700"><strong>Email:</strong> legal@Pupps.com</p>
                 <p className="text-gray-700"><strong>Phone:</strong> (555) PET-LOVE</p>
                 <p className="text-gray-700"><strong>Address:</strong> 123 Pet Street, Animal City, AC 12345</p>
               </div>
@@ -166,7 +166,7 @@ const TermsOfService = () => {
 
             <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8">
               <p className="text-blue-800">
-                <strong>Important:</strong> By using PetAdopt, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy.
+                <strong>Important:</strong> By using Pupps, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy.
               </p>
             </div>
           </div>

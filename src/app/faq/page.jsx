@@ -138,7 +138,7 @@ const FAQPage = () => {
               Contact Us
             </Link>
             <a
-              href="mailto:help@petadopt.com"
+              href="mailto:help@Pupps.com"
               className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors duration-300"
             >
               Email Support

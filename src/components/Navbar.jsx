@@ -56,7 +56,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-purple-400 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -66,7 +66,7 @@ const Navbar = () => {
             aria-label="Pet Adoption Platform Home"
           >
             <span className="text-3xl">🐾</span>
-            <span>PetAdopt</span>
+            <span>Pupps</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -83,23 +83,11 @@ const Navbar = () => {
               className={getNavLinkClasses('/pets')}
               aria-label="Browse Pets"
             >
-              Pets
+              Services
             </Link>
             
-            <Link
-              href="/adoption-process"
-              className={getNavLinkClasses('/adoption-process')}
-              aria-label="Adoption Process"
-            >
-              Adoption Process
-            </Link>
-            <Link
-              href="/volunteer"
-              className={getNavLinkClasses('/volunteer')}
-              aria-label="Volunteer"
-            >
-              Volunteer
-            </Link>
+           
+           
 
             <Link
               href="/about"
@@ -117,11 +105,11 @@ const Navbar = () => {
               Contact
             </Link>
             <Link
-              href="/pets"
-              className={getNavLinkClasses('/pets', true)}
-              aria-label="Adopt Now"
+              href="/login"
+              className={getNavLinkClasses('/login', true)}
+              aria-label="Login"
             >
-              Adopt Now
+         Login
             </Link>
           </div>
 
@@ -179,22 +167,8 @@ const Navbar = () => {
               >
                 About
               </Link>
-              <Link
-                href="/adoption-process"
-                onClick={handleLinkClick}
-                className={getMobileNavLinkClasses('/adoption-process')}
-                aria-label="Adoption Process"
-              >
-                Adoption Process
-              </Link>
-              <Link
-                href="/volunteer"
-                onClick={handleLinkClick}
-                className={getMobileNavLinkClasses('/volunteer')}
-                aria-label="Volunteer"
-              >
-                Volunteer
-              </Link>
+            
+           
               <Link
                 href="/contact"
                 onClick={handleLinkClick}
@@ -204,12 +178,12 @@ const Navbar = () => {
                 Contact
               </Link>
               <Link
-                href="/pets"
+                href="/login"
                 onClick={handleLinkClick}
-                className={getMobileNavLinkClasses('/pets', true)}
-                aria-label="Adopt Now"
+                className={getMobileNavLinkClasses('/login', true)}
+                aria-label="Login"
               >
-                Adopt Now
+           Login
               </Link>
             </div>
           </div>

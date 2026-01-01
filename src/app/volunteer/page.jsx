@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Volunteer Opportunities | PetAdopt - Make a Difference in Pet Lives',
+  title: 'Volunteer Opportunities | Pupps - Make a Difference in Pet Lives',
   description: 'Join our volunteer team and help make a difference in the lives of pets in need. Discover various volunteer opportunities that fit your schedule and interests.',
   keywords: 'pet volunteer, animal shelter volunteer, dog walking volunteer, cat care volunteer, pet rescue volunteer',
 };
@@ -305,7 +305,7 @@ const VolunteerPage = () => {
               Why Volunteer With Us?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Volunteering with PetAdopt offers numerous benefits beyond the satisfaction of helping animals.
+              Volunteering with Pupps offers numerous benefits beyond the satisfaction of helping animals.
             </p>
           </div>
 

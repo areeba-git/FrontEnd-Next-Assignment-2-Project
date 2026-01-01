@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">1. Information We Collect</h2>
               <p className="text-gray-700 mb-4">
-                At PetAdopt, we collect information to provide better services to our users and help connect pets with loving families. We collect information in the following ways:
+                At Pupps, we collect information to provide better services to our users and help connect pets with loving families. We collect information in the following ways:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li><strong>Personal Information:</strong> Name, email address, phone number, and address when you register or contact us</li>
@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy or our privacy practices, please contact us:
               </p>
               <div className="bg-gray-100 p-4 rounded-lg">
-                <p className="text-gray-700"><strong>Email:</strong> privacy@petadopt.com</p>
+                <p className="text-gray-700"><strong>Email:</strong> privacy@Pupps.com</p>
                 <p className="text-gray-700"><strong>Phone:</strong> (555) PET-LOVE</p>
                 <p className="text-gray-700"><strong>Address:</strong> 123 Pet Street, Animal City, AC 12345</p>
               </div>
