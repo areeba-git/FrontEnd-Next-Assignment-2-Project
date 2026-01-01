@@ -13,14 +13,10 @@ const nextConfig = {
       },
     ],
   },
-  // Enable React strict mode
+  // Enable React strict mode (optional, true by default in Next.js 15)
   reactStrictMode: true,
-  // Optional: Enable swcMinify for faster builds
-  swcMinify: true,
-  // Optional: Add compiler options if needed
-  compiler: {
-    // removeConsole: process.env.NODE_ENV === 'production',
-  },
+  // swcMinify is no longer needed - Next.js 15 handles minification automatically
+  // Remove compiler options if not needed
 };
 
 export default nextConfig;
